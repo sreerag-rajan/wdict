@@ -157,7 +157,7 @@ class _WdictEngineScreenState extends State<WdictEngineScreen> {
                       )
                     : ListView.builder(
                         padding: const EdgeInsets.only(
-                          bottom: 100,
+                          bottom: 120,
                         ), // Space for bottom button
                         itemCount: displayIngredients.length,
                         itemBuilder: (context, index) {
@@ -225,10 +225,10 @@ class _WdictEngineScreenState extends State<WdictEngineScreen> {
           );
         },
       ),
-      bottomSheet: Container(
-        color: AppColors.paperWhite,
-        padding: const EdgeInsets.all(16.0),
-        child: SafeArea(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
           child: SizedBox(
             width: double.infinity,
             child: SketchyButton(

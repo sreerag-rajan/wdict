@@ -87,7 +87,7 @@ class WdictResultScreen extends StatelessWidget {
 
           return ListView.builder(
             padding: const EdgeInsets.all(16.0).copyWith(
-              bottom: 100, // Space for bottom button
+              bottom: 120, // Space for bottom button
             ),
             itemCount: recipes.length,
             itemBuilder: (context, index) {
@@ -138,28 +138,23 @@ class WdictResultScreen extends StatelessWidget {
           );
         },
       ),
-      bottomSheet: Container(
-        color: AppColors.paperWhite,
-        padding: const EdgeInsets.all(16.0),
-        child: SafeArea(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              SizedBox(
-                width: double.infinity,
-                child: SketchyButton(
-                  onPressed: () {
-                    // Pop back to home dashboard (pop until first route)
-                    Navigator.of(context).popUntil((route) => route.isFirst);
-                  },
-                  backgroundColor: AppColors.paperWhite,
-                  child: const Text(
-                    'Back to Dashboard',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
-                ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+          child: SizedBox(
+            width: double.infinity,
+            child: SketchyButton(
+              onPressed: () {
+                // Pop back to home dashboard (pop until first route)
+                Navigator.of(context).popUntil((route) => route.isFirst);
+              },
+              backgroundColor: AppColors.paperWhite,
+              child: const Text(
+                'Back to Dashboard',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
-            ],
+            ),
           ),
         ),
       ),

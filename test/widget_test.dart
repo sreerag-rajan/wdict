@@ -5,6 +5,7 @@
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
 
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:wdict/main.dart';
@@ -14,8 +15,7 @@ void main() {
     // Build our app and trigger a frame.
     await tester.pumpWidget(const WdictApp());
 
-    // Verify that our app name is displayed.
-    // The new HomeDashboardScreen has the title 'WDICT Dashboard'
-    expect(find.text('WDICT Dashboard'), findsOneWidget);
+    // Verify that our app logo image is displayed in the AppBar.
+    expect(find.byType(Image), findsWidgets);
   });
 }

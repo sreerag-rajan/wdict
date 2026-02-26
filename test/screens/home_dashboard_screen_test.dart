@@ -66,9 +66,9 @@ void main() {
     ) async {
       await tester.pumpWidget(createWidgetUnderTest());
 
-      expect(find.text('Ingredients\n(Digital Pantry)'), findsOneWidget);
-      expect(find.text('Recipes\n(Personal Cookbook)'), findsOneWidget);
-      expect(find.text('WDICT\n(Recommendation Engine)'), findsOneWidget);
+      expect(find.text('Ingredients'), findsOneWidget);
+      expect(find.text('Recipes'), findsOneWidget);
+      expect(find.text('WDICT'), findsOneWidget);
       expect(find.byType(Card), findsNWidgets(3));
     });
 
@@ -77,7 +77,7 @@ void main() {
       (WidgetTester tester) async {
         await tester.pumpWidget(createWidgetUnderTest());
 
-        final title = find.text('Ingredients\n(Digital Pantry)');
+        final title = find.text('Ingredients');
         await tester.tap(title);
         await tester.pumpAndSettle();
 
@@ -90,7 +90,7 @@ void main() {
       (WidgetTester tester) async {
         await tester.pumpWidget(createWidgetUnderTest());
 
-        final title = find.text('Recipes\n(Personal Cookbook)');
+        final title = find.text('Recipes');
         await tester.tap(title);
         await tester.pumpAndSettle();
 
@@ -103,7 +103,7 @@ void main() {
     ) async {
       await tester.pumpWidget(createWidgetUnderTest());
 
-      final title = find.text('WDICT\n(Recommendation Engine)');
+      final title = find.text('WDICT');
       await tester.tap(title);
       await tester.pumpAndSettle();
 

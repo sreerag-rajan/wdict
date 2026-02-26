@@ -9,83 +9,98 @@ class HomeDashboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('WDICT Dashboard'), centerTitle: true),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Flexible(
-              flex: 5,
-              child: AspectRatio(
-                aspectRatio: 1,
-                child: _buildRouteCard(
-                  context,
-                  title: 'WDICT\n(Recommendation Engine)',
-                  imagePath: 'assets/images/wdict_asset.jpeg',
-                  isLarge: true,
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const WdictEngineScreen(),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
+                'assets/images/wdict_logo.png',
+                height: 140,
+                fit: BoxFit.contain,
+              ),
+              const SizedBox(height: 48),
+              Flexible(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Flexible(flex: 1, child: const SizedBox()),
+                    Flexible(
+                      flex: 2,
+                      child: AspectRatio(
+                        aspectRatio: 1,
+                        child: _buildRouteCard(
+                          context,
+                          title: 'WDICT',
+                          imagePath: 'assets/images/wdict_asset.jpeg',
+                          isLarge: false,
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const WdictEngineScreen(),
+                              ),
+                            );
+                          },
+                        ),
                       ),
-                    );
-                  },
+                    ),
+                    Flexible(flex: 1, child: const SizedBox()),
+                  ],
                 ),
               ),
-            ),
-            const SizedBox(height: 16),
-            Flexible(
-              flex: 4,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Flexible(
-                    child: AspectRatio(
-                      aspectRatio: 1,
-                      child: _buildRouteCard(
-                        context,
-                        title: 'Ingredients\n(Digital Pantry)',
-                        imagePath: 'assets/images/ingredient_asset.jpeg',
-                        isLarge: false,
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  const IngredientManagementScreen(),
-                            ),
-                          );
-                        },
+              const SizedBox(height: 16),
+              Flexible(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Flexible(
+                      child: AspectRatio(
+                        aspectRatio: 1,
+                        child: _buildRouteCard(
+                          context,
+                          title: 'Ingredients',
+                          imagePath: 'assets/images/ingredient_asset.jpeg',
+                          isLarge: false,
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const IngredientManagementScreen(),
+                              ),
+                            );
+                          },
+                        ),
                       ),
                     ),
-                  ),
-                  const SizedBox(width: 16),
-                  Flexible(
-                    child: AspectRatio(
-                      aspectRatio: 1,
-                      child: _buildRouteCard(
-                        context,
-                        title: 'Recipes\n(Personal Cookbook)',
-                        imagePath: 'assets/images/recipe_asset.jpeg',
-                        isLarge: false,
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  const RecipeManagementScreen(),
-                            ),
-                          );
-                        },
+                    const SizedBox(width: 16),
+                    Flexible(
+                      child: AspectRatio(
+                        aspectRatio: 1,
+                        child: _buildRouteCard(
+                          context,
+                          title: 'Recipes',
+                          imagePath: 'assets/images/recipe_asset.jpeg',
+                          isLarge: false,
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const RecipeManagementScreen(),
+                              ),
+                            );
+                          },
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
